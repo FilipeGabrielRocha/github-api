@@ -5,6 +5,10 @@ const screen = {
                                             <img src="${user.avatarUrl}" alt="Foto do perfil do usuário" />
                                             <div class="data">
                                                 <h1>${user.name ?? 'Não possui nome cadastrado 😢'}</h1>
+                                                <div class="infoFollowers">
+                                                    <p>${`<span>Seguidores:</span> ${user.numberFollowers}` ?? 'Não possui bio cadastrada 😢'}</p>
+                                                    <p>${`<span>Seguindo:</span> ${user.numberFollowing}` ?? 'Não possui bio cadastrada 😢'}</p>
+                                                </div>
                                                 <p>${user.bio ?? 'Não possui bio cadastrada 😢'}</p>
                                             </div>
                                         </div>`
@@ -17,6 +21,24 @@ const screen = {
                                                 <h2>Repositórios</h2>
                                                 <ul>${repositoriesItens}</ul>
                                             </div>`
+        }
+
+        let eventsItens = ''
+        // user.events.forEach((events,indicieEvents) => eventsItens += `<li>${events.repo.name}: ${events.payload.commits}</li>`)
+        user.events.forEach(events => {
+            if (events.type === 'CreateEvent' || events.type === 'PushEvent'){
+                console.log('dentro das especificações');
+                eventsItens += `<li>${events.repo.name}: ${events.payload.commits}</li>`
+            }
+        });
+
+        if (user.events.length > 0){
+            this.userProfile.innerHTML += `<div class="events action">
+                                                <h2>Eventos</h2>
+                                                <ul>${eventsItens}</ul>
+                                           </div>`
+        } else {
+            this.userProfile.innerHTML += 'erro ou n tem nada'
         }
     },
     renderNotFound(){

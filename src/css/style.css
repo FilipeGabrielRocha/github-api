@@ -121,6 +121,18 @@ main {
   line-height: 23px;
 }
 
+.container .profile-data .infoFollowers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.container .profile-data .infoFollowers p span {
+  font-weight: bold;
+}
+
 /* REPOSITORIES */
 
 .container .profile-data .repositories h2{
