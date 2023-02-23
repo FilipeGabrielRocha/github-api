@@ -14,7 +14,19 @@ const screen = {
                                         </div>`
 
         let repositoriesItens = ''
-        user.repositories.forEach(repo => repositoriesItens += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`)
+        user.repositories.forEach(repo => {
+            repositoriesItens += `
+                                    <div class="containerRepos">
+                                        <li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>
+                                        <div class="containerCaracter">
+                                            <div class="caracter">&#x1F374 ${repo.forks}</div>
+                                            <div class="caracter">&#x1F440 ${repo.watchers}</div>
+                                            <div class="caracter">&#x2B50 ${repo.stargazers_count}</div>
+                                            <div class="caracter">&#x1F310 ${repo.language}</div>
+                                        </div>
+                                    </div>
+                                `
+        });
 
         if (user.repositories.length > 0){
             this.userProfile.innerHTML += `<div class="repositories section">
@@ -24,13 +36,12 @@ const screen = {
         }
 
         let eventsItens = ''
-        // user.events.forEach((events,indicieEvents) => eventsItens += `<li>${events.repo.name}: ${events.payload.commits}</li>`)
-        user.events.forEach((events, indicie) => {
+        user.events.forEach(events => {
             if (events.type === 'CreateEvent' || events.type === 'PushEvent'){
                 if (events.payload.description === '' || events.payload.description === null || events.payload.description === undefined){
                     eventsItens += `<li><span>${events.repo.name}:</span> - Não tem Descrição</li>`
                 } else {
-                    eventsItens += `<li><span>${events.repo.name}:</span> - <span class="containerDescription">${events.payload.description}</span></li>`
+                    eventsItens += `<li><span>${events.repo.name}:</span> - ${events.payload.description}</li>`
                 }
             }
         });
@@ -40,8 +51,6 @@ const screen = {
                                                 <h2>Eventos</h2>
                                                 <ul>${eventsItens}</ul>
                                            </div>`
-        } else {
-            this.userProfile.innerHTML += 'erro ou n tem nada'
         }
     },
     renderNotFound(){

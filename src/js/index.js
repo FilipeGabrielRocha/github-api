@@ -44,13 +44,3 @@ async function getUserData(userName){
 
     screen.renderUser(user)
 }
-
-async function teste(userName){
-    const url = `https://api.github.com/users/${userName}/events?per_page=10`
-    const response = await fetch(url)
-    const json = await response.json()
-    console.log(json);
-}
-
-// console.log(teste('filipegabrielrocha'));
-teste('devemdobro')
