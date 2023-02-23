@@ -33,6 +33,10 @@ const screen = {
                                                 <h2>Repositórios</h2>
                                                 <ul>${repositoriesItens}</ul>
                                             </div>`
+        } else {
+            this.userProfile.innerHTML += `<div class="repositories section">
+                                                <h2>Não contêm repositórios</h2>
+                                           </div>`
         }
 
         let eventsItens = ''
@@ -50,6 +54,10 @@ const screen = {
             this.userProfile.innerHTML += `<div class="events section">
                                                 <h2>Eventos</h2>
                                                 <ul>${eventsItens}</ul>
+                                           </div>`
+        } else {
+            this.userProfile.innerHTML += `<div class="events section">
+                                                <h2>Não contêm Eventos</h2>
                                            </div>`
         }
     },

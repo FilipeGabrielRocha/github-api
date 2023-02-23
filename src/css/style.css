@@ -175,12 +175,17 @@ main {
 }
 
 .container .profile-data .events h2 {
+  margin: auto 0px;
   font-weight: bold;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .container .profile-data .events span {
   font-weight: bold;
+}
+
+.container .profile-data .events ul{
+  margin-top: 30px;
 }
 
 .container .profile-data .events ul li{
