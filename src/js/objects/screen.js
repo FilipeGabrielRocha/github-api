@@ -25,15 +25,18 @@ const screen = {
 
         let eventsItens = ''
         // user.events.forEach((events,indicieEvents) => eventsItens += `<li>${events.repo.name}: ${events.payload.commits}</li>`)
-        user.events.forEach(events => {
+        user.events.forEach((events, indicie) => {
             if (events.type === 'CreateEvent' || events.type === 'PushEvent'){
-                console.log('dentro das especificações');
-                eventsItens += `<li>${events.repo.name}: ${events.payload.commits}</li>`
+                if (events.payload.description === '' || events.payload.description === null || events.payload.description === undefined){
+                    eventsItens += `<li><span>${events.repo.name}:</span> - Não tem Descrição</li>`
+                } else {
+                    eventsItens += `<li><span>${events.repo.name}:</span> - <span class="containerDescription">${events.payload.description}</span></li>`
+                }
             }
         });
 
         if (user.events.length > 0){
-            this.userProfile.innerHTML += `<div class="events action">
+            this.userProfile.innerHTML += `<div class="events section">
                                                 <h2>Eventos</h2>
                                                 <ul>${eventsItens}</ul>
                                            </div>`
