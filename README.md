@@ -3,11 +3,11 @@
   - Mostrar os 10 últimos repositórios.
   - Nome.
   - Status.
-  - Número de pessoas que estão te seguindo.
-  - Número de pessoas que você está seguindo.
+  - Número de pessoas que estão seguindo a conta.
+  - Número de pessoas que a conta está seguindo.
   - Quantidade de Forks.
-  - Quantidade de Stars (favoritos).
-  - Quantidade de Watchers (Observadores).
+  - Quantidade de Star (favoritos).
+  - Quantidade de Watching (Observadores).
   - Linguagem predominante no projeto.
   - Mostrando até os 10 últimos eventos
   - Mostrando título dos eventos.
