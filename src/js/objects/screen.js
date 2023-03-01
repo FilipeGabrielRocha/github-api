@@ -39,18 +39,27 @@ const screen = {
                                            </div>`
         }
 
-        let eventsItens = ''
-        user.events.forEach(events => {
-            if (events.type === 'CreateEvent' || events.type === 'PushEvent'){
-                if (events.payload.description === '' || events.payload.description === null || events.payload.description === undefined){
-                    eventsItens += `<li><span>${events.repo.name}:</span> - Não tem Descrição</li>`
-                } else {
-                    eventsItens += `<li><span>${events.repo.name}:</span> - ${events.payload.description}</li>`
-                }
-            }
-        });
-
         if (user.events.length > 0){
+            let eventsItens = ''
+            user.events.forEach(event => {
+                if (event.type === 'CreateEvent' || event.type === 'PushEvent'){
+                    if (event.payload){
+                        if (event.payload.commits){
+                            const commits = event.payload.commits
+                            const commitsLits = commits.map((commit) => {
+                                return commit.message
+                            })
+        
+                            eventsItens += `<li><span>${event.repo.name}:</span> - ${commitsLits}</li>`
+                        } else {
+                            eventsItens += `<li><span>${event.repo.name}:</span> - Não tem Descrição</li>`
+                        }
+                    } else {
+                        eventsItens += `<li><span>${event.repo.name}:</span> - Não tem Descrição</li>`
+                    }                    
+                }
+            });
+
             this.userProfile.innerHTML += `<div class="events section">
                                                 <h2>Eventos</h2>
                                                 <ul>${eventsItens}</ul>
