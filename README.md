@@ -1,17 +1,7 @@
-# github-api
- Um projeto que utiliza a API do GitHub para buscar perfils de lá, com o objetivo de:
-  - Mostrar os 10 últimos repositórios.
-  - Nome.
-  - Status.
-  - Número de pessoas que estão seguindo a conta.
-  - Número de pessoas que a conta está seguindo.
-  - Quantidade de Forks.
-  - Quantidade de Star (favoritos).
-  - Quantidade de Watching (Observadores).
-  - Linguagem predominante no projeto.
-  - Mostrando até os 10 últimos eventos
-  - Mostrando título dos eventos.
-  - Mostrando em qual repositório foi feito o evento.
+# Consultando Perfils no GitHub
+Este projeto utiliza a API do GitHub para recuperar perfis, exibindo informações essenciais sobre os 10 últimos repositórios de um usuário. Apresenta dados como nome, status, seguidores, contas seguidas, forks, estrelas, observadores e a linguagem predominante em cada projeto.
+
+Além disso, fornece uma visão rápida dos últimos 10 eventos, incluindo títulos e o repositório onde cada evento ocorreu. Essa abordagem visa oferecer aos usuários uma compreensão completa e eficaz das atividades recentes em seus perfis do GitHub.
   
   Link do Site: https://filipegabrielrocha.github.io/github-api/
  
